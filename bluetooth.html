@@ -8,15 +8,15 @@
 </head>
 
 <body>
-  <button id="bluetooth">开启蓝牙1</button>
+  <button id="bluetooth">开启蓝牙2</button>
   <script>
 
     document.querySelector('#bluetooth').addEventListener('pointerup', function (event) {
       try {
-        navigator.bluetooth.requestDevice({ filters: [{ 
+        navigator.bluetooth.requestDevice({
           acceptAllDevices: true,
           optionalServices: ['battery_service']
-        }] })
+        })
           .then(device => {
             document.body.innerText = String(device);
           })
