@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button id="bluetooth">开启蓝牙</button>
+  <script>
+
+    document.querySelector('#bluetooth').addEventListener('pointerup', function (event) {
+      try {
+        navigator.bluetooth.requestDevice({ filters: [{ services: ['battery_service'] }] })
+          .then(device => {
+            document.body.innerText = String(device);
+          })
+          .catch(error => {
+            document.body.innerText = 'error: ' + String(err);
+          });
+      } catch (err) {
+        document.body.innerText = 'error: ' + String(err);
+      }
+    });
+
+
+  </script>
+</body>
+
+</html>
