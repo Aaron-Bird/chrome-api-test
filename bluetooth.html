@@ -15,7 +15,6 @@
       try {
         navigator.bluetooth.requestDevice({
           acceptAllDevices: true,
-          optionalServices: ['battery_service']
         })
           .then(device => {
             document.body.innerText = String(device);
