@@ -13,7 +13,10 @@
 
     document.querySelector('#bluetooth').addEventListener('pointerup', function (event) {
       try {
-        navigator.bluetooth.requestDevice({ filters: [{ services: ['battery_service'] }] })
+        navigator.bluetooth.requestDevice({ filters: [{ 
+          acceptAllDevices: true,
+          optionalServices: ['battery_service']
+        }] })
           .then(device => {
             document.body.innerText = String(device);
           })
